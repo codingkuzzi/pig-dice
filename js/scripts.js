@@ -4,7 +4,65 @@
 function rollDie() {
     return Math.floor(Math.random() * 6) + 1;
 }
-
+function go() {
+  clean();
+  num = Math.ceil(Math.random()*6);
+  console.log(num);
+  switch(num) {
+    case 1: {
+      tbl.rows[1].cells[1].innerHTML = "<div class='circle'></div>";
+      break;
+    }
+    case 2: {
+      tbl.rows[2].cells[0].innerHTML = "<div class='circle'></div>";
+      tbl.rows[0].cells[2].innerHTML = "<div class='circle'></div>";
+      break;
+    }
+    case 3: {
+      tbl.rows[2].cells[0].innerHTML = "<div class='circle'></div>";
+      tbl.rows[1].cells[1].innerHTML = "<div class='circle'></div>";
+      tbl.rows[0].cells[2].innerHTML = "<div class='circle'></div>";
+      break;
+    }
+    case 4: {
+      tbl.rows[0].cells[0].innerHTML = "<div class='circle'></div>";
+      tbl.rows[0].cells[2].innerHTML = "<div class='circle'></div>";
+      tbl.rows[2].cells[0].innerHTML = "<div class='circle'></div>";
+      tbl.rows[2].cells[2].innerHTML = "<div class='circle'></div>";
+      break;
+    }
+    case 5: {
+      tbl.rows[0].cells[0].innerHTML = "<div class='circle'></div>";
+      tbl.rows[0].cells[2].innerHTML = "<div class='circle'></div>";
+      tbl.rows[1].cells[1].innerHTML = "<div class='circle'></div>";
+      tbl.rows[2].cells[0].innerHTML = "<div class='circle'></div>";
+      tbl.rows[2].cells[2].innerHTML = "<div class='circle'></div>";
+      break;
+    }
+    case 6: {
+      tbl.rows[0].cells[0].innerHTML = "<div class='circle'></div>";
+      tbl.rows[0].cells[2].innerHTML = "<div class='circle'></div>";
+      tbl.rows[1].cells[0].innerHTML = "<div class='circle'></div>";
+      tbl.rows[1].cells[2].innerHTML = "<div class='circle'></div>";
+      tbl.rows[2].cells[0].innerHTML = "<div class='circle'></div>";
+      tbl.rows[2].cells[2].innerHTML = "<div class='circle'></div>";
+      break;
+    }
+  }
+}
+function clean() {
+  tbl.classList.toggle("twist");
+  tbl.rows[0].cells[0].innerHTML = "<div class='circle hide'>";
+  tbl.rows[0].cells[1].innerHTML = "<div class='circle hide'>";
+  tbl.rows[0].cells[2].innerHTML = "<div class='circle hide'>";
+  tbl.rows[1].cells[0].innerHTML = "<div class='circle hide'>";
+  tbl.rows[1].cells[1].innerHTML = "<div class='circle hide'>";
+  tbl.rows[1].cells[2].innerHTML = "<div class='circle hide'>";
+  tbl.rows[2].cells[0].innerHTML = "<div class='circle hide'>";
+  tbl.rows[2].cells[1].innerHTML = "<div class='circle hide'>";
+  tbl.rows[2].cells[2].innerHTML = "<div class='circle hide'>";
+  setTimeout(function() { tbl.classList.toggle("twist");},200);
+}
 // JavaScript classes introduced in ECMAScript 2015 are primarily syntactical sugar over JavaScript's existing prototype-based inheritance
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
 
@@ -137,7 +195,8 @@ var game = new Game();
 
 // user interface logic
 $(document).ready(function () {
-    $("#roll").click(function () {
+    $("#tbl").click(function () {
+        go();
         game.currentTurn.roll();
         postTurn();
     });

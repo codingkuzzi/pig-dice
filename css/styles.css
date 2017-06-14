@@ -1,11 +1,11 @@
 .header {
   text-align: center;
 }
-#dice {
-  margin: 20%;
+$pigbutton{
+width: 10%;
+height: 10%;
 
 }
-
   body {
     padding: 10%;
     margin: 0;
@@ -56,16 +56,8 @@
     height: 5in;
     width: 5in;
     user-select: none;
+    margin: 20%;
   }
   .hide {
     visibility: hidden;
-  }
-  .footer {
-    font-family: sans-serif;
-    font-weight: 300;
-    position: absolute;
-    left: 30px;
-    bottom: 10px;
-    color: #6ebce3;
-    font-size: 50%;
   }
