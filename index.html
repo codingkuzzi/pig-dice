@@ -11,6 +11,16 @@
 <body>
     <div class="container">
         <div>
+          <div class="header">
+          <h1>Pig Dice Game</h1>
+          <h2>How to play:</h2>
+        </div>
+          <h3>
+            <ul>
+              <li>If the player rolls a 1, they score nothing and it becomes the next player's turn.</li>
+              <li>If the player rolls any other number, it is added to their turn total and the player's turn continues.</li>
+              <li>If a player chooses to "hold", their turn total is added to their score, and it becomes the next player's turn.</li>
+          </h3>
             <p>Player 1 Score</p>
             <ul id="score1"><li>0</li></ul>
         </div>
@@ -21,9 +31,85 @@
         <div>
             <p id="turn_title">Player 1 Turn</p>
             <ul id="turn"></ul>
-            <button type="button" id="roll" class="btn">Roll</button>
+            <button type="button" id="roll" class="btn"  <body onload="rollDie()" onkeypress="rollDie()" onclick="rollDie()">Roll</button>
             <button type="button" id="hold" class="btn" style="display: none;">Hold</button>
         </div>
     </div>
+      <div id="dice">
+
+
+
+        	<script type="text/javascript">
+        	function go() {
+        		clean();
+        		num = Math.ceil(Math.random()*6);
+        		console.log(num);
+        		switch(num) {
+        			case 1: {
+        				tbl.rows[1].cells[1].innerHTML = "<div class='circle'></div>";
+        				break;
+        			}
+        			case 2: {
+        				tbl.rows[2].cells[0].innerHTML = "<div class='circle'></div>";
+        				tbl.rows[0].cells[2].innerHTML = "<div class='circle'></div>";
+        				break;
+        			}
+        			case 3: {
+        				tbl.rows[2].cells[0].innerHTML = "<div class='circle'></div>";
+        				tbl.rows[1].cells[1].innerHTML = "<div class='circle'></div>";
+        				tbl.rows[0].cells[2].innerHTML = "<div class='circle'></div>";
+        				break;
+        			}
+        			case 4: {
+        				tbl.rows[0].cells[0].innerHTML = "<div class='circle'></div>";
+        				tbl.rows[0].cells[2].innerHTML = "<div class='circle'></div>";
+        				tbl.rows[2].cells[0].innerHTML = "<div class='circle'></div>";
+        				tbl.rows[2].cells[2].innerHTML = "<div class='circle'></div>";
+        				break;
+        			}
+        			case 5: {
+        				tbl.rows[0].cells[0].innerHTML = "<div class='circle'></div>";
+        				tbl.rows[0].cells[2].innerHTML = "<div class='circle'></div>";
+        				tbl.rows[1].cells[1].innerHTML = "<div class='circle'></div>";
+        				tbl.rows[2].cells[0].innerHTML = "<div class='circle'></div>";
+        				tbl.rows[2].cells[2].innerHTML = "<div class='circle'></div>";
+        				break;
+        			}
+        			case 6: {
+        				tbl.rows[0].cells[0].innerHTML = "<div class='circle'></div>";
+        				tbl.rows[0].cells[2].innerHTML = "<div class='circle'></div>";
+        				tbl.rows[1].cells[0].innerHTML = "<div class='circle'></div>";
+        				tbl.rows[1].cells[2].innerHTML = "<div class='circle'></div>";
+        				tbl.rows[2].cells[0].innerHTML = "<div class='circle'></div>";
+        				tbl.rows[2].cells[2].innerHTML = "<div class='circle'></div>";
+        				break;
+        			}
+        		}
+        	}
+        	function clean() {
+        		tbl.classList.toggle("twist");
+        		tbl.rows[0].cells[0].innerHTML = "<div class='circle hide'>";
+        		tbl.rows[0].cells[1].innerHTML = "<div class='circle hide'>";
+        		tbl.rows[0].cells[2].innerHTML = "<div class='circle hide'>";
+        		tbl.rows[1].cells[0].innerHTML = "<div class='circle hide'>";
+        		tbl.rows[1].cells[1].innerHTML = "<div class='circle hide'>";
+        		tbl.rows[1].cells[2].innerHTML = "<div class='circle hide'>";
+        		tbl.rows[2].cells[0].innerHTML = "<div class='circle hide'>";
+        		tbl.rows[2].cells[1].innerHTML = "<div class='circle hide'>";
+        		tbl.rows[2].cells[2].innerHTML = "<div class='circle hide'>";
+        		setTimeout(function() { tbl.classList.toggle("twist");},200);
+        	}
+        	</script>
+        </head>
+
+        	<div class="center">
+        			<table id="tbl">
+        				<tr> <td></div></td><td></td><td></td> </tr>
+        				<tr> <td></td><td></td><td></td> </tr>
+        				<tr> <td></td><td></td><td></td> </tr>
+        			</table>
+      </div>
+
+
 </body>
 </html>
