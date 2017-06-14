@@ -2,12 +2,10 @@
 
 // [return int 1..6] simulate die roll
 function rollDie() {
-    return Math.floor(Math.random() * 6) + 1;
+  return Math.floor(Math.random() * 6) + 1;
 }
-function go() {
-  clean();
-  num = Math.ceil(Math.random()*6);
-  console.log(num);
+function UI_rollDie(num) {
+  UI_cleanDie();
   switch(num) {
     case 1: {
       tbl.rows[1].cells[1].innerHTML = "<div class='circle'></div>";
@@ -50,7 +48,7 @@ function go() {
     }
   }
 }
-function clean() {
+function UI_cleanDie() {
   tbl.classList.toggle("twist");
   tbl.rows[0].cells[0].innerHTML = "<div class='circle hide'>";
   tbl.rows[0].cells[1].innerHTML = "<div class='circle hide'>";
@@ -196,8 +194,8 @@ var game = new Game();
 // user interface logic
 $(document).ready(function () {
     $("#tbl").click(function () {
-        go();
         game.currentTurn.roll();
+        UI_rollDie(game.currentTurn.rolls[game.currentTurn.rolls.length - 1]);
         postTurn();
     });
 
